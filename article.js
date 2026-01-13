@@ -37,7 +37,7 @@ const navbarItems = document.querySelectorAll(".navbar-right li");
 navbarItems.forEach(li => {
   li.addEventListener("click", () => {
     const category = li.dataset.category;
-    window.location.href = `meow.html?category=${encodeURIComponent(category)}`;
+    window.location.href = `index.html?category=${encodeURIComponent(category)}`;
   });
 });
 
@@ -45,7 +45,8 @@ navbarItems.forEach(li => {
 siteTitle.addEventListener("click", () => {
   const category = siteTitle.dataset.category || "all";
   const url = category === "all"
-    ? "meow.html"
-    : `meow.html?category=${encodeURIComponent(category)}`;
+    ? "index.html"
+    : `index.html?category=${encodeURIComponent(category)}`;
   window.location.href = url;
 });
+
