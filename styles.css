@@ -1,0 +1,266 @@
+/* =========================
+   Base Styles
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure full height */
+}
+
+/* =========================
+   Navbar
+   ========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: white;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-left {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-right ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-right li {
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* =========================
+   Main Content
+   ========================= */
+main {
+  margin-top: 80px; /* Avoid navbar overlap */
+  padding: 2rem 0 0 0;
+  flex: 1;
+  background-color: transparent;
+}
+
+/* -------------------------
+   Exclusive News & Sidebar
+   ------------------------- */
+.exclusive-news-section {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.exclusive-news,
+.sidebar {
+  background-color: white;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.exclusive-news {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  color: #1e3a8a;
+}
+
+/* -------------------------
+   Divider
+   ------------------------- */
+.divider {
+  border: 1px solid #ddd;
+  margin: 2rem 0;
+}
+
+/* =========================
+   News Grid
+   ========================= */
+.news-grid {
+  padding: 2rem 4rem;
+  margin: 0;
+  background-color: #333;
+}
+
+/* News column/card */
+.news-column {
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #272727;
+  transition: transform 0.3s ease;
+}
+
+.news-column:hover {
+  transform: translateY(-5px);
+}
+
+.news-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.news-column p {
+  font-size: 0.9rem;
+  color: #000;
+}
+
+/* Home layout (grid) */
+.news-grid.home-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* Category layout (stacked) */
+.news-grid.category-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 2rem;
+  background-color: #f5f5f5;
+}
+
+/* =========================
+   Footer
+   ========================= */
+.footer {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  margin-top: auto;
+}
+
+/* =========================
+   Full Article Page
+   ========================= */
+.full-article {
+  max-width: 800px;
+  margin: auto;
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.full-article h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.full-article p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #272727;
+}
+
+#articleMeta {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* =========================
+   Responsive Design
+   ========================= */
+@media (max-width: 768px) {
+  /* Navbar stack */
+  .navbar ul {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .navbar-left {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .navbar-right {
+    margin-top: 1rem;
+  }
+
+  /* Exclusive & Sidebar stack */
+  .exclusive-news-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .exclusive-news,
+  .sidebar {
+    flex: 1;
+  }
+
+  /* News grid: 2 columns */
+  .news-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 1rem;
+    margin: 0;
+  }
+
+  .footer {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Navbar text smaller */
+  .navbar-left {
+    font-size: 1rem;
+  }
+
+  .navbar-right ul {
+    gap: 0.5rem;
+  }
+
+  .navbar-right li {
+    font-size: 0.875rem;
+  }
+
+  /* Padding adjustments */
+  .exclusive-news,
+  .sidebar {
+    padding: 1rem;
+  }
+
+  /* News grid: single column */
+  .news-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    margin: 0;
+  }
+}

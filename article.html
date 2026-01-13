@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="navbar-left" id="siteTitle" data-category="all">
+        Modern Hírek
+      </div>
+      <div class="navbar-right">
+        <ul>
+          <li data-category="Szechenyi">Szechenyi</li>
+          <li data-category="World">World</li>
+          <li data-category="Opinion">Opinion</li>
+          <li data-category="Business">Business</li>
+          <li data-category="Entertainment">Entertainment</li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="full-article">
+      <h1 id="articleTitle"></h1>
+      <p id="articleMeta"></p>
+      <p id="articleText"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Modern Hírek</p>
+  </footer>
+
+  <script type="module" src="article.js"></script>
+</body>
+</html>

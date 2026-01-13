@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Híroldal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="navbar-left" id="siteTitle" data-category="all">
+        Modern Hírek
+      </div>
+      <div class="navbar-right">
+        <ul>
+          <li data-category="Szechenyi">Szechenyi</li>
+          <li data-category="World">World</li>
+          <li data-category="Opinion">Opinion</li>
+          <li data-category="Business">Business</li>
+          <li data-category="Entertainment">Entertainment</li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Exclusive News Section -->
+    <section class="exclusive-news-section">
+      <div class="exclusive-news" id="exclusiveNews">
+        <!-- Exclusive article will be injected here -->
+      </div>
+      <div class="sidebar">
+        <h3>Popular News</h3>
+        <ul id="popularNews">
+          <!-- Popular news articles will be injected here -->
+        </ul>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <hr class="divider">
+
+    <!-- News Grid Section -->
+    <section class="news-grid" id="newsGrid">
+      <!-- All articles will be injected here -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 Modern Hírek</p>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
