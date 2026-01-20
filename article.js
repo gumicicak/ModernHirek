@@ -44,9 +44,12 @@ navbarItems.forEach(li => {
 // Navigate home or category when clicking site title
 siteTitle.addEventListener("click", () => {
   const category = siteTitle.dataset.category || "all";
-  const url = category === "all"
-    ? "index.html"
-    : `index.html?category=${encodeURIComponent(category)}`;
-  window.location.href = url;
-});
 
+  if (category !== "all") {
+    // Step 1: Go back to index.html WITH the category filter
+    window.location.href = `index.html?category=${encodeURIComponent(category)}`;
+  } else {
+    // Step 2: Go back to index.html WITHOUT any filters
+    window.location.href = "index.html";
+  }
+});
