@@ -3,7 +3,7 @@ export const newsData = [
   {
     id: "szechenyi-1",
     title: "Szechenyi Bridge Renovation Completed",
-    text: "The iconic Szechenyi Bridge in Budapest has finished its major renovation, improving both safety and aesthetics...",
+    text: "heli.jpg- The iconic Szechenyi Bridge in Budapest has finished its major renovation, improving both safety and aesthetics...",
     category: "Szechenyi",
     date: "2026-01-13",
     writer: "John Smith"
