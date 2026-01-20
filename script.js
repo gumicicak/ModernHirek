@@ -113,7 +113,13 @@ navbarItems.forEach(li => {
 });
 
 // Clicking site title returns to home
-siteTitle.addEventListener("click", () => renderAll("all"));
+siteTitle.addEventListener("click", () => {
+  // Reset the URL to the base path without parameters
+  window.history.pushState({}, '', window.location.pathname);
+  
+  // Render the home view
+  renderAll("all");
+});
 
 // --- Initial Render ---
 const urlParams = new URLSearchParams(window.location.search);
