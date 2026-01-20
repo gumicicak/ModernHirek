@@ -194,6 +194,59 @@ main {
   margin-bottom: 1.5rem;
 }
 
+/* Styling for images in the news grids (Small article view) */
+.news-grid img {
+  width: 100%; 
+  aspect-ratio: 2/1;
+  object-fit: cover;    /* Ensures the image fills the square without stretching */
+  border-radius: 4px;   /* Optional: adds slightly rounded corners */
+  display: block;
+}
+
+/* Styling for the Exclusive article image (Big preview view) */
+.exclusive-article{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Layout for Category View */
+.category-grid .news-column {
+  display: flex;
+  flex-direction: row-reverse; /* Image right, Text left */
+  align-items: flex-start;
+  gap: 20px;
+  padding: 15px;
+  border-bottom: 1px solid #ddd; /* Adds a nice separator line */
+}
+
+/* Ensure the text container takes up the remaining space */
+.category-grid .news-column .text-content {
+  flex: 1;
+}
+
+/* Fix image size for the horizontal layout */
+.category-grid .news-column img {
+  width: 40%;       /* Fixed width for the side image */
+  aspect-ratio: 4/1;      /* Keeps it 1:1 square as requested before */
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0;   /* Remove the bottom margin used in vertical layout */
+}
+
+/* Responsive: Stack them back to vertical on small mobile screens */
+@media (max-width: 480px) {
+  .category-grid .news-column {
+    flex-direction: column;
+  }
+  .category-grid .news-column img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+}
+
 /* =========================
    Responsive Design
    ========================= */
