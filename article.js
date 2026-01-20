@@ -1,55 +1,50 @@
 import { newsData } from "./newsData.js";
 
-// --- Get Article ID from URL ---
 const params = new URLSearchParams(window.location.search);
 const articleId = params.get("id");
-
-// --- Find Article ---
 const article = newsData.find(a => a.id === articleId);
 
-// --- Get DOM Elements ---
 const titleEl = document.getElementById("articleTitle");
 const textEl = document.getElementById("articleText");
 const metaEl = document.getElementById("articleMeta");
 const siteTitle = document.getElementById("siteTitle");
 
-// --- Render Article ---
 if (article) {
-  titleEl.textContent = article.title;
-  textEl.textContent = article.text;
-  metaEl.textContent = `Category: ${article.category} | Author: ${article.writer} | Date: ${article.date}`;
+  let displayText = article.text;
+  
+  // Simple split at the dash
+  if (article.text.includes("-")) {
+    const parts = article.text.split("-");
+    const imageName = parts[0].trim();
+    displayText = parts.slice(1).join("-").trim();
 
-  // Update navbar site title with category
+    // Create the image element
+    const img = document.createElement("img");
+    img.src = `images/${imageName}`;
+    img.style.width = "100%";
+    img.style.marginBottom = "20px";
+    img.style.borderRadius = "8px";
+    
+    // Put the image before the text
+    textEl.parentNode.insertBefore(img, textEl);
+  }
+
+  titleEl.textContent = article.title;
+  textEl.textContent = displayText;
+  metaEl.textContent = `Category: ${article.category} | Author: ${article.writer} | Date: ${article.date}`;
   siteTitle.textContent = `Modern Hírek : ${article.category}`;
   siteTitle.dataset.category = article.category;
-} else {
-  titleEl.textContent = "Article not found";
-  textEl.textContent = "";
-  metaEl.textContent = "";
-  siteTitle.textContent = "Modern Hírek";
-  siteTitle.dataset.category = "all";
 }
 
-// --- Navbar Functionality ---
+// Navbar Functionality (No changes needed)
 const navbarItems = document.querySelectorAll(".navbar-right li");
-
-// Navigate to category on click
 navbarItems.forEach(li => {
   li.addEventListener("click", () => {
-    const category = li.dataset.category;
-    window.location.href = `index.html?category=${encodeURIComponent(category)}`;
+    window.location.href = `index.html?category=${encodeURIComponent(li.dataset.category)}`;
   });
 });
 
-// Navigate home or category when clicking site title
 siteTitle.addEventListener("click", () => {
   const category = siteTitle.dataset.category || "all";
-
-  if (category !== "all") {
-    // Step 1: Go back to index.html WITH the category filter
-    window.location.href = `index.html?category=${encodeURIComponent(category)}`;
-  } else {
-    // Step 2: Go back to index.html WITHOUT any filters
-    window.location.href = "index.html";
-  }
+  window.location.href = category !== "all" ? `index.html?category=${category}` : "index.html";
 });
